@@ -1,34 +1,83 @@
-<div class="card" style="margin-top:20px">
-        <p style="margin-bottom:15px; color:#94a3b8">أدوات وتقنيات أخرى:</p>
-        <div class="tags">
-            <span class="tag">VS Code</span>
-            <span class="tag">Linux</span>
-            <span class="tag">SQL</span>
-            <span class="tag">React (قريباً)</span>
-            <span class="tag">Node.js (قريباً)</span>
-        </div>
+<div class="skill-card">
+      <div class="skill-icon">📱</div>
+      <div class="skill-name">Responsive Design</div>
+      <div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div>
+      <div class="skill-percent">80%</div>
     </div>
-</div>
 
-<div class="section">
-    <h2>📂 مشاريعي</h2>
-    <div class="card">
-        <p>✔ أول موقع شخصي Portfolio (هذا الموقع)</p>
-    </div>
-</div>
+  </div>
 
-<div class="section">
-    <h2>📞 تواصل معي</h2>
-    <div class="card">
-        <p>📧 Email: example@gmail.com</p>
-        <br>
-        <p>GitHub: <a href="https://github.com/mohammedbekheddouma-jpg">mohammedbekheddouma</a></p>
+  <div style="margin-top:40px">
+    <div class="section-title" style="font-size:22px">🛠️ أدوات وتقنيات</div>
+    <div class="tech-grid">
+      <span class="tech-badge">VS Code</span>
+      <span class="tech-badge">Linux</span>
+      <span class="tech-badge">SQL</span>
+      <span class="tech-badge">Figma</span>
+      <span class="tech-badge">Bootstrap</span>
+      <span class="tech-badge">React (قريباً)</span>
+      <span class="tech-badge">Node.js (قريباً)</span>
+      <span class="tech-badge">MongoDB (قريباً)</span>
     </div>
-</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- مشاريع -->
+<section>
+  <div class="section-title">📂 مشاريعي</div>
+  <div class="project-card">
+    <h3>🌟 Portfolio الشخصي</h3>
+    <p>أول موقع شخصي احترافي مبني بـ HTML و CSS خالص، يعرض مهاراتي ومشاريعي بتصميم داكن أنيق.</p>
+  </div>
+  <div class="project-card">
+    <h3>🚀 مشاريع قادمة...</h3>
+    <p>أعمل حالياً على مشاريع جديدة في JavaScript و Python. ترقبوا! ⚡</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- تواصل -->
+<section>
+  <div class="section-title">📞 تواصل معي</div>
+  <div class="contact-grid">
+    <a class="contact-card" href="mailto:example@gmail.com">
+      <div class="icon">📧</div>
+      <div><strong>البريد الإلكتروني</strong></div>
+      <span>example@gmail.com</span>
+    </a>
+    <a class="contact-card" href="https://github.com/mohammedbekheddouma-jpg">
+      <div class="icon">🐙</div>
+      <div><strong>GitHub</strong></div>
+      <span>mohammedbekheddouma</span>
+    </a>
+  </div>
+</section>
 
 <footer>
-    © 2026 - Portfolio محمد 🚀
+  صُنع بـ ❤️ بواسطة محمد بخضومة &nbsp;|&nbsp; © 2026
 </footer>
+
+<script>
+  // إنشاء نجوم عشوائية
+  const container = document.getElementById('stars');
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    const size = Math.random() * 3 + 1;
+    star.style.cssText = 
+      width: ${size}px;
+      height: ${size}px;
+      top: ${Math.random() * 100}%;
+      left: ${Math.random() * 100}%;
+      animation-delay: ${Math.random() * 3}s;
+      animation-duration: ${2 + Math.random() * 3}s;
+    ;
+    container.appendChild(star);
+  }
+</script>
 
 </body>
 </html>
