@@ -1,4 +1,459 @@
+[05/05/2026 23:45] برهوم الانجنيور الاسطوري: <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammed | Developer</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #020617;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite alternate;
+  }
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(1); }
+    to { opacity: 1; transform: scale(1.5); }
+  }
+
+  header {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background: radial-gradient(ellipse at center, #1e1b4b 0%, #020617 70%);
+  }
+
+  .avatar {
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #38bdf8);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 55px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 40px #6366f188;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 40px #6366f188; }
+    50% { box-shadow: 0 0 80px #38bdf888; }
+  }
+
+  header h1 {
+    font-size: 48px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+  }
+
+  .typing {
+    font-size: 20px;
+    color: #94a3b8;
+    border-right: 2px solid #38bdf8;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40) infinite alternate, blink 0.7s infinite;
+    max-width: 450px;
+  }
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  @keyframes blink { 50% { border-color: transparent; } }
+
+  .scroll-down {
+    margin-top: 40px;
+    font-size: 30px;
+    animation: bounce 1.5s infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 80px 20px;
+    max-width: 950px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #38bdf8;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+
+  /* مهارات */
+  .skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+  }
+  .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #38bdf855;
+    box-shadow: 0 20px 40px #38bdf811;
+  }
+
+  .skill-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+  }
+  .skill-icon { font-size: 32px; }
+  .skill-info { text-align: right; }
+  .skill-name { font-size: 17px; font-weight: bold; }
+  .skill-level {
+    font-size: 12px;
+    color: #38bdf8;
+    margin-top: 2px;
+  }
+
+  .bar-bg {
+    background: #1e293b;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+  }
+  .bar-fill {
+    height: 10px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    animation: grow 2s ease-out;
+    position: relative;
+  }
+  @keyframes grow { from { width: 0; } }
+[05/05/2026 23:45] برهوم الانجنيور الاسطوري: .bar-fill::after {
+    content: attr(data-percent);
+    position: absolute;
+    right: -30px;
+    top: -6px;
+    font-size: 12px;
+    color: #38bdf8;
+    font-weight: bold;
+  }
+
+  .bar-wrapper {
+    padding-left: 35px;
+  }
+
+  /* تقنيات */
+  .tech-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .tech-badge {
+    background: #0f172a;
+    border: 1px solid #38bdf855;
+    color: #38bdf8;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+  .tech-badge:hover {
+    background: #38bdf8;
+    color: #020617;
+    transform: scale(1.05);
+  }
+
+  /* مشاريع */
+  .project-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+    text-align: right;
+  }
+  .project-card:hover {
+    border-color: #6366f155;
+    transform: translateX(-5px);
+    box-shadow: 0 10px 30px #6366f111;
+  }
+  .project-card h3 { color: #38bdf8; font-size: 20px; margin-bottom: 10px; }
+  .project-card p { color: #94a3b8; line-height: 1.7; }
+
+  /* تواصل */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .contact-card {
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  .contact-card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px #38bdf811;
+  }
+  .contact-card .icon { font-size: 35px; margin-bottom: 10px; }
+  .contact-card strong { display: block; margin-bottom: 5px; }
+  .contact-card span { color: #94a3b8; font-size: 13px; word-break: break-all; }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px;
+    color: #475569;
+    border-top: 1px solid #1e293b;
+    font-size: 14px;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #1e293b, transparent);
+  }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 32px; }
+    .skill-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<header>
+  <div class="avatar">👨‍💻</div>
+  <h1>محمد بخضومة</h1>
+  <p class="typing">مطوّر ويب محترف | شغوف بالبرمجة 🚀</p>
+  <div class="scroll-down">⬇️</div>
+</header>
+
+<div class="divider"></div>
+
 <section>
+  <div class="section-title">👤 من أنا</div>
+  <div class="project-card">
+    <p>أنا محمد بخضومة، مطوّر ويب شغوف من الجزائر. أتقن لغات البرمجة الأساسية وأسعى دائماً لتطوير مهاراتي. هدفي بناء مشاريع رقمية تحل مشاكل حقيقية وتُحدث فرقاً في العالم 💡</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-title">💡 مهاراتي التقنية</div>
+  <div class="skill-grid">
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🌐</div>
+        <div class="skill-info">
+          <div class="skill-name">HTML5</div>
+          <div class="skill-level">⭐ متقدم جداً</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:95%" data-percent="95%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-info">
+          <div class="skill-name">CSS3</div>
+          <div class="skill-level">⭐ متقدم جداً</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:90%" data-percent="90%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+[05/05/2026 23:45] برهوم الانجنيور الاسطوري: <div class="skill-top">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-info">
+          <div class="skill-name">JavaScript</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:85%" data-percent="85%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🐍</div>
+        <div class="skill-info">
+          <div class="skill-name">Python</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:82%" data-percent="82%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">⚛️</div>
+        <div class="skill-info">
+          <div class="skill-name">React.js</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:83%" data-percent="83%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🟢</div>
+        <div class="skill-info">
+          <div class="skill-name">Node.js</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:81%" data-percent="81%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-info">
+          <div class="skill-name">SQL & MongoDB</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:82%" data-percent="82%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🔧</div>
+        <div class="skill-info">
+          <div class="skill-name">Git & GitHub</div>
+          <div class="skill-level">⭐ متقدم جداً</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:88%" data-percent="88%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">🐧</div>
+        <div class="skill-info">
+          <div class="skill-name">Linux</div>
+          <div class="skill-level">🔥 متقدم</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:80%" data-percent="80%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-top">
+        <div class="skill-icon">📱</div>
+        <div class="skill-info">
+          <div class="skill-name">Responsive Design</div>
+          <div class="skill-level">⭐ متقدم جداً</div>
+        </div>
+      </div>
+      <div class="bar-wrapper">
+        <div class="bar-bg"><div class="bar-fill" style="width:92%" data-percent="92%"></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:50px">
+    <div class="section-title" style="font-size:24px">🛠️ أدوات وتقنيات</div>
+    <div class="tech-grid">
+      <span class="tech-badge">VS Code</span>
+      <span class="tech-badge">Figma</span>
+      <span class="tech-badge">Bootstrap</span>
+      <span class="tech-badge">Tailwind CSS</span>
+      <span class="tech-badge">TypeScript</span>
+      <span class="tech-badge">Docker</span>
+      <span class="tech-badge">Firebase</span>
+      <span class="tech-badge">REST API</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+[05/05/2026 23:45] برهوم الانجنيور الاسطوري: <section>
   <div class="section-title">📂 مشاريعي</div>
   <div class="project-card">
     <h3>🌟 Portfolio الشخصي</h3>
